@@ -13,44 +13,35 @@ const winningConditions = [
     [2, 4, 6]
 ];
 
+var soundX = new Audio('Sound2.mp3');
+var soundO = new Audio('Sound3.mp3');
+var winSound = new Audio('Sound4.mp3');
+var restartSound = new Audio('Sound1.mp3');
 
 function makeMove(cellIndex) {
-     
-        
     if (gameActive && board[cellIndex] === '') {
         board[cellIndex] = currentPlayer;
         document.getElementsByClassName('cell')[cellIndex].innerText = currentPlayer;
-      
+
+        // Play sound based on currentPlayer
+        if (currentPlayer === 'X') {
+            soundX.play();
+        } else {
+            soundO.play();
+        }
+
         if (checkWin()) {
             document.getElementById('message').innerText = `${currentPlayer} wins!`;
             gameActive = false;
+            winSound.play();
         } else if (isBoardFull()) {
             document.getElementById('message').innerText = "It's a draw!";
             gameActive = false;
         } else {
             currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-      
         }
-     
-  }
-
-const isXTurn = true; 
-
-    
-    if (isXTurn) {
-        const xSound = document.getElementById('xSound');
-        xSound.currentTime = 0; 
-        xSound.play();
-    } else {
-        const oSound = document.getElementById('oSound');
-        oSound.currentTime = 0; 
-        oSound.play();
     }
-
-        
 }
-
-
 function checkWin() {
     return winningConditions.some(condition => {
         return condition.every(index => {
@@ -63,20 +54,17 @@ function isBoardFull() {
     return board.every(cell => cell !== '');
 }
 
+
 function restartGame() {
     currentPlayer = 'X';
     board = ['', '', '', '', '', '', '', '', ''];
     gameActive = true;
     document.getElementById('message').innerText = '';
     Array.from(document.getElementsByClassName('cell')).forEach(cell => cell.innerText = '');
+    
+    
+    restartSound.play();
 }
 
-function playGameSound() {
-            const audioElement = document.getElementById("gameSound");
-            audioElement.play();
-        }
 
-const restartButton = document.querySelector("button");
-        restartButton.addEventListener("click", playGameSound);
-
-
+document.getElementById('restartButton').addEventListener('click', restartGame);

@@ -1,0 +1,88 @@
+.container {
+    text-align: center; 
+    background-color: #ff00bf;
+    font-size: 20px;
+    font-family: Georgia;
+}
+
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 5px;
+    margin: 10px auto;
+    border: 3px solid blue;
+    width: 285px;
+    background-color: yellow;
+    border-radius: 25px;
+    padding: 10px 10px;
+}
+
+.cell {
+    width: 80px;
+    height: 100px;
+    border: 2px solid red;
+    font-size: 3em; 
+    font-family: Arial;
+    color: #9900ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-left: -5px;
+    border-radius: 10px;
+    padding:0px; 0px;
+    }
+
+.message {
+    margin-top: 20px;
+    -webkit-text-stroke: 2px black;
+    font-size: 3em;
+    font-family: Courier New;
+    font-weight: bold;
+    color: yellow;
+}
+
+.button {
+  width: 200px;
+  padding: 10px 15px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #3cd070;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 6px 6px #006600;
+  
+}
+
+.button:focus {
+  outline-style: none;
+}
+
+.button:hover {background-color: #00ff00}
+
+.button:active {
+  background-color: #c80815;
+  box-shadow: 4px 4px #666;
+  transform: translateX(6px) translateY(2px);
+}
+
+
+
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    font-family: verdana;
+    color: #990033;
+    cursor: pointer;
+    background-color: #00ffcc;
+}
+body {
+  background-color: lightblue;
+}

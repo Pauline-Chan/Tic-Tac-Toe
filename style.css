@@ -65,7 +65,7 @@
 .button:hover {background-color: #00ff00}
 
 .button:active {
-  background-color: #006600;
+  background-color: #cf1020;
   box-shadow:0px 5px #666;
   transform: translateX(6px) translateY(2px);
 }
